@@ -1,0 +1,16 @@
+header {
+  text-align: center;
+  margin-top: 50px;
+  letter-spacing: 5px;
+}
+
+header p {
+  font-size: 30px;
+  font-weight: 400;
+}
+
+#list {
+  display: block;
+  width: 400px;
+  margin: 100px 100px 10px auto;
+}

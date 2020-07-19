@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tanichael's Portfolio</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div class='content'>
+    <header class="container">
+      <div class='top'>
+        <h1 id='title'>
+          Tanigawa's Portfolio
+          <hr>
+        </h1>
+      </div>
+      <nav id="global nav">
+        <ul id="menu">
+          <li><a href="#profile">Profile</a></li>
+           <li><a href="#products">Products</a></li>
+          <li><a href="#skills">Skills</a></li>
+           <li><a href="#contact">Contact</a></li>
+         </ul>
+      </nav>
+    </header>
+
+    <div class="smallTitle" id="profile">
+      <div class="profileTop">
+        <p>
+          Profile
+        </p>
+      </div>
+      <div id="profileBox">
+        <div id="profileList">
+          <div id='image'>
+            <img src="img/IMG_1611.JPG" id="toma">
+          </div>
+  
+          <ul id="list">
+            <li>
+              <strong>
+                Name:
+              </strong> 
+              <span>
+                Toma Tanigawa
+              </span>
+            </li>
+            <li>
+              <strong>
+                Age:
+              </strong>
+              <span>
+                20
+              </span>
+            </li>
+            <li>
+              <strong>Major</strong>:
+              <span>
+                東京大学工学部社会基盤学科
+              </span>
+              <!-- <span>
+                東京大学運動会硬式庭球部
+              </span> -->
+            </li>
+            <li>
+              <strong>History</strong>: 
+              <span>
+                神戸高等学校総合理学科卒
+              </span>
+            </li>
+            <li>
+              <strong>Introduction:</strong> 
+              <span>
+                インフラを通じた途上国支援に興味を持ち、理科一類から社会基盤学科国際プロジェクトコースに進学。
+                <br>所属している庭球部のホームページを作ろうとしたのをきっかけにIT技術に興味を持ち始め、現在はその両方の知識を生かした社会貢献を目指している。
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="smallTitle" id="products">
+      <div class="profileTop">
+        <p>
+          Products
+        </p>
+      </div>
+      <div id="productSet">
+      </div>
+    </div>
+
+    <div class="smallTitle" id="skills">
+      <div class="profileTop" id='skillTitle'>
+        <p>
+          Skills
+        </p>
+      </div>
+
+      <div id="skillSet">
+      </div>
+      <div id="gitList">
+        <div id="gitContent">
+          <a href="https://github.com/Tanichael" target="_blank">
+            <svg id="github" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="5rem" height="5rem"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+          </a>
+          <p>
+            ⬅︎ GitHubはこちらのアイコンからどうぞ！
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="smallTitle" id='contacts'>
+      <div class="profileTop" id="contact">
+        <p>
+          Contact
+        </p>
+      </div>
+      <div class='icons'>
+        <div class='twitter'>
+          <a href="https://twitter.com/toma_tanichael" class="icon" target="_blank">
+            <img src="img/twitterのフリーアイコン素材.jpeg" id="mail">
+          </a>
+                <div class="message">
+                  ご連絡はTwitterのDMからよろしくお願いします！
+                </div>
+        </div>
+
+          
+      </div>
+
+    </div>
+
+    <footer>
+       <p id="copyright">
+           <small>
+               Copyright © 2020 Tanigawa's Portfolio. All rights reserved.
+           </small>
+       </p>
+    </footer>
+  </div>
+
+  <script type="text/babel">
+    (() => {
+
+      function Set(props) {
+        return(
+          <li className="item">
+            {props.skill.name}
+          </li>
+        );
+      }
+
+      function Product(props) {
+        const sets = props.product.skills.map(skill => {
+          return(
+            <Set
+              skill = {skill}
+              key = {skill.id}
+            />
+          );
+        });
+        return(
+          <a href={props.product.link} target="_blank">
+            <li className="colorbox" style={{backgroundColor: props.product.color}}>
+              <div className="desc">
+                <div className="image">
+                  <img src={props.product.image} width="200px"/>
+                </div>
+                <div className="appTitle">
+                  {props.product.name}
+                </div>
+                <ul className="list">
+                  {sets}
+                </ul>
+              </div>
+            </li>
+          </a>
+        );
+      }
+
+      function ProductList(props) {
+        const products = props.products.map(product => {
+          return(
+            <Product
+              product = {product}
+              key = {product.id}
+            />
+          );
+        });
+        return(
+          <ul className="subbox">
+            {products}
+          </ul>
+        );
+      }
+
+      class Products extends React.Component {
+        constructor() {
+          super();
+          this.state = {
+            products: [
+              {id: "1", name: "非常に楽しいゲーム", link: "https://tanichael-mazegame.herokuapp.com/index.html", skills: [{id: "1", name: "HTML"}, {id: "2", name: "CSS"}, {id: "3", name: "JavaScript"}], color: "rgba(149,110,231, 0.3)", image: "img/非常に楽しいゲーム.png"},
+              {id: "2", name: "Coming Soon", link: "#", skills: [{id: "1", name: "HTML"}, {id: "2", name: "CSS"}, {id: "3", name: "JavaScript"}], color: "rgba(230, 230, 230, 0.2)", image: "img/非常に楽しいゲーム.png"},
+            ]
+          };
+        }
+        render() {
+          return (
+            <div className="box2">
+              <ProductList
+                products = {this.state.products}
+              />
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(
+        <Products/>,
+        document.getElementById('productSet')
+      );
+
+
+
+      function Skill(props) {
+        return (
+          <li style={{backgroundColor: props.skill.color, color: '#444'}}>
+            {props.skill.name}
+          </li>
+        );
+
+      }
+
+      function SkillList(props) {
+        const skills = props.skills.map(skill => {
+          return (
+            <Skill
+            skill = {skill}
+            key = {skill.id}
+            />
+          );
+        });
+        return (
+          <ul>
+            {skills}
+          </ul>
+        );
+      }
+
+      class App extends React.Component {
+        constructor() {
+          super();
+          this.state = {
+            skills: [
+              {id: '1', name: 'HTML', exp: '4ヵ月', color: 'rgba(255, 253, 220, 1)'},
+              {id: '2', name: 'CSS', exp: '4ヵ月', color: 'rgba(161, 215, 245, 0.2)'},
+              {id: '3', name: 'JavaScript', exp: '4ヵ月', color: 'rgba(255, 253, 220, 1)'},
+              {id: '4', name: 'React', exp: '4ヵ月', color: 'rgba(161, 215, 245, 0.2)'},
+              {id: '5', name: 'PHP', exp: '4ヵ月', color: 'rgba(255, 253, 220, 1)'},
+              {id: '6', name: 'C++', exp: '4ヵ月', color: 'rgba(161, 215, 245, 0.2)'},
+              {id: '7', name: 'kotlin', exp: '4ヵ月', color: 'rgba(255, 253, 220, 1)'},
+              {id: '8', name: 'R', exp: '4ヵ月', color: 'rgba(161, 215, 245, 0.2)'},
+              {id: '9', name: 'Node.js', exp: '4ヵ月', color: 'rgba(255, 253, 220, 1)'},
+
+            ]
+          };
+        }
+        render() {
+          return (
+            <div className="box">
+              <SkillList
+                skills={this.state.skills}
+              />
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(
+        <App/>,
+        document.getElementById('skillSet')
+      );
+
+    })();
+  </script>
+</body>
+</html>
