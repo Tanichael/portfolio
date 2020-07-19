@@ -147,6 +147,7 @@
   </div>
 
   <script type="text/babel">
+    
     (() => {
 
       function Set(props) {
@@ -167,11 +168,11 @@
           );
         });
         return(
-          <a href={props.product.link} target="_blank">
+          <a href={props.product.link} target="_blank" id={props.product.name}>
             <li className="colorbox" style={{backgroundColor: props.product.color}}>
               <div className="desc">
                 <div className="image">
-                  <img src={props.product.image} width="200px"/>
+                   
                 </div>
                 <div className="appTitle">
                   {props.product.name}
@@ -201,13 +202,14 @@
         );
       }
 
+
       class Products extends React.Component {
         constructor() {
           super();
           this.state = {
             products: [
-              {id: "1", name: "非常に楽しいゲーム", link: "https://tanichael-mazegame.herokuapp.com/index.html", skills: [{id: "1", name: "HTML"}, {id: "2", name: "CSS"}, {id: "3", name: "JavaScript"}], color: "rgba(149,110,231, 0.3)", image: "img/非常に楽しいゲーム.png"},
-              {id: "2", name: "Coming Soon", link: "#", skills: [{id: "1", name: "HTML"}, {id: "2", name: "CSS"}, {id: "3", name: "JavaScript"}], color: "rgba(230, 230, 230, 0.2)", image: "img/非常に楽しいゲーム.png"},
+              {id: "1", name: "非常に楽しいゲーム", link: "https://tanichael-mazegame.herokuapp.com/index.html", skills: [{id: "1", name: "HTML"}, {id: "2", name: "CSS"}, {id: "3", name: "JavaScript"}], color: "rgba(149,110,231, 0.3)", image: 'img/非常に楽しいゲーム.png'},
+              {id: "2", name: "Coming Soon", link: "#", skills: [{id: "1", name: "HTML"}, {id: "2", name: "CSS"}, {id: "3", name: "JavaScript"}], color: "rgba(230, 230, 230, 0.2)", image: 'img/非常に楽しいゲーム.png'},
             ]
           };
         }
